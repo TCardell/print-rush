@@ -18,7 +18,7 @@ jobs:
   build-and-preview:
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: preview-2d
       url: https://tcardell.github.io/print-rush/preview/
     steps:
       - name: Obtener la versión estable de main
