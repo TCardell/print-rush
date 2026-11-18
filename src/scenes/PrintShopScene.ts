@@ -30,8 +30,8 @@ export class PrintShopScene extends Phaser.Scene {
     const g = this.add.graphics();
     g.fillStyle(0xc2d8d4);
     g.fillPoints([
-      new Phaser.Geom.Point(450, 80), new Phaser.Geom.Point(820, 265),
-      new Phaser.Geom.Point(450, 460), new Phaser.Geom.Point(80, 265)
+      { x: 450, y: 80 }, { x: 820, y: 265 },
+      { x: 450, y: 460 }, { x: 80, y: 265 }
     ], true);
     g.lineStyle(2, 0x8baea9, 0.48);
     for (let i = 0; i <= 10; i++) {
@@ -41,13 +41,13 @@ export class PrintShopScene extends Phaser.Scene {
     }
     g.fillStyle(0x638585);
     g.fillPoints([
-      new Phaser.Geom.Point(80, 265), new Phaser.Geom.Point(450, 460),
-      new Phaser.Geom.Point(450, 488), new Phaser.Geom.Point(80, 292)
+      { x: 80, y: 265 }, { x: 450, y: 460 },
+      { x: 450, y: 488 }, { x: 80, y: 292 }
     ], true);
     g.fillStyle(0x496c76);
     g.fillPoints([
-      new Phaser.Geom.Point(450, 460), new Phaser.Geom.Point(820, 265),
-      new Phaser.Geom.Point(820, 292), new Phaser.Geom.Point(450, 488)
+      { x: 450, y: 460 }, { x: 820, y: 265 },
+      { x: 820, y: 292 }, { x: 450, y: 488 }
     ], true);
     this.add.text(450, 45, 'LA PRIMERA IMPRENTA', {
       color: '#1f5262', fontSize: '24px', fontFamily: 'monospace', fontStyle: 'bold'
@@ -59,16 +59,16 @@ export class PrintShopScene extends Phaser.Scene {
     const dark = Phaser.Display.Color.IntegerToColor(color).darken(25).color;
     const darker = Phaser.Display.Color.IntegerToColor(color).darken(42).color;
     g.fillStyle(color).fillPoints([
-      new Phaser.Geom.Point(-65, -9), new Phaser.Geom.Point(0, -42),
-      new Phaser.Geom.Point(65, -9), new Phaser.Geom.Point(0, 25)
+      { x: -65, y: -9 }, { x: 0, y: -42 },
+      { x: 65, y: -9 }, { x: 0, y: 25 }
     ], true);
     g.fillStyle(dark).fillPoints([
-      new Phaser.Geom.Point(-65, -9), new Phaser.Geom.Point(0, 25),
-      new Phaser.Geom.Point(0, 53), new Phaser.Geom.Point(-65, 19)
+      { x: -65, y: -9 }, { x: 0, y: 25 },
+      { x: 0, y: 53 }, { x: -65, y: 19 }
     ], true);
     g.fillStyle(darker).fillPoints([
-      new Phaser.Geom.Point(0, 25), new Phaser.Geom.Point(65, -9),
-      new Phaser.Geom.Point(65, 19), new Phaser.Geom.Point(0, 53)
+      { x: 0, y: 25 }, { x: 65, y: -9 },
+      { x: 65, y: 19 }, { x: 0, y: 53 }
     ], true);
     const sign = this.add.text(0, 57, label, {
       color: '#173b47', backgroundColor: '#ffffffdd',
