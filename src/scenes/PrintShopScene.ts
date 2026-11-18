@@ -30,8 +30,8 @@ export class PrintShopScene extends Phaser.Scene {
     const g = this.add.graphics();
     g.fillStyle(0xc2d8d4);
     g.fillPoints([
-      { x: 450, y: 80 }, { x: 820, y: 265 },
-      { x: 450, y: 460 }, { x: 80, y: 265 }
+      new Phaser.Math.Vector2(450, 80), new Phaser.Math.Vector2(820, 265),
+      new Phaser.Math.Vector2(450, 460), new Phaser.Math.Vector2(80, 265)
     ], true);
     g.lineStyle(2, 0x8baea9, 0.48);
     for (let i = 0; i <= 10; i++) {
@@ -41,13 +41,13 @@ export class PrintShopScene extends Phaser.Scene {
     }
     g.fillStyle(0x638585);
     g.fillPoints([
-      { x: 80, y: 265 }, { x: 450, y: 460 },
-      { x: 450, y: 488 }, { x: 80, y: 292 }
+      new Phaser.Math.Vector2(80, 265), new Phaser.Math.Vector2(450, 460),
+      new Phaser.Math.Vector2(450, 488), new Phaser.Math.Vector2(80, 292)
     ], true);
     g.fillStyle(0x496c76);
     g.fillPoints([
-      { x: 450, y: 460 }, { x: 820, y: 265 },
-      { x: 820, y: 292 }, { x: 450, y: 488 }
+      new Phaser.Math.Vector2(450, 460), new Phaser.Math.Vector2(820, 265),
+      new Phaser.Math.Vector2(820, 292), new Phaser.Math.Vector2(450, 488)
     ], true);
     this.add.text(450, 45, 'LA PRIMERA IMPRENTA', {
       color: '#1f5262', fontSize: '24px', fontFamily: 'monospace', fontStyle: 'bold'
@@ -60,19 +60,19 @@ export class PrintShopScene extends Phaser.Scene {
     const darker = Phaser.Display.Color.IntegerToColor(color).darken(42).color;
     g.fillStyle(color).fillPoints([
       { x: -65, y: -9 }, { x: 0, y: -42 },
-      { x: 65, y: -9 }, { x: 0, y: 25 }
+      { x: 65, y: -9 }, new Phaser.Math.Vector2(0, 25)
     ], true);
     g.fillStyle(dark).fillPoints([
-      { x: -65, y: -9 }, { x: 0, y: 25 },
-      { x: 0, y: 53 }, { x: -65, y: 19 }
+      { x: -65, y: -9 }, new Phaser.Math.Vector2(0, 25),
+      new Phaser.Math.Vector2(0, 53), { x: -65, y: 19 }
     ], true);
     g.fillStyle(darker).fillPoints([
-      { x: 0, y: 25 }, { x: 65, y: -9 },
-      { x: 65, y: 19 }, { x: 0, y: 53 }
+      new Phaser.Math.Vector2(0, 25), { x: 65, y: -9 },
+      new Phaser.Math.Vector2(65, 19), new Phaser.Math.Vector2(0, 53)
     ], true);
     const sign = this.add.text(0, 57, label, {
       color: '#173b47', backgroundColor: '#ffffffdd',
-      padding: { x: 8, y: 5 }, fontSize: '14px',
+      padding: new Phaser.Math.Vector2(8, 5), fontSize: '14px',
       fontFamily: 'monospace', fontStyle: 'bold'
     }).setOrigin(0.5, 0);
     const station = this.add.container(x, y, [g, sign])
