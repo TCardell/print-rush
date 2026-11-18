@@ -1,23 +1,27 @@
-# PRINT RUSH — Plan de desarrollo
+# PRINT RUSH — Hoja de ruta
 
-## Concepto
-Juego educativo de gestión de una imprenta isométrica. El jugador atiende clientes, confirma pedidos, gestiona colas y compromisos de entrega y resuelve incidencias.
-
-La atención al cliente es el eje pedagógico: producción y economía son sistemas que generan decisiones comerciales.
+## Visión
+Juego de gestión isométrico sobre una imprenta que vive y trabaja. El jugador gestiona la atención al cliente, encargos, tiempos, comunicación, producción y entregas.
 
 ## Principios
-- Pixel art isométrico coherente, sin mezclar estilos incompatibles.
-- Interfaz accesible y legible, con catalán y castellano en versiones posteriores.
-- Clientes y pedidos persistentes durante las partidas.
-- Lógica del negocio separada de la representación visual.
-- Precios y tiempos ficticios y claramente señalados.
+- Los **pedidos persisten**: una solicitud puede generar llamadas, modificaciones y recogidas posteriores.
+- El **modo RUSH** se basa en prioridades, no solo en velocidad de lectura.
+- El progreso puede ser económico, pero la **atención al cliente** determina confianza y reputación.
+- La lógica del juego se mantiene independiente de la representación visual.
+- Accesibilidad, claridad y edición futura en catalán y castellano.
 
-## Hitos
-1. **0.0.1 — Prueba de concepto:** sala geométrica provisional y ciclo mínimo de un pedido.
-2. **0.1 — Primera jornada:** escenario isométrico pulido, clientes animados y recogidas.
-3. **0.2 — Comunicaciones:** teléfono, correo, modificaciones y seguimiento.
-4. **0.3 — Modo RUSH:** eventos, prioridades, reputación, reloj y estadísticas.
-5. **0.4 — Carrera / tycoon:** inversión, maquinaria, personal y progreso guardado.
-6. **0.5 — Mundo vivo:** clientes recurrentes, ampliaciones y acontecimientos.
+## Versiones
+- [x] **0.0.1 — Prueba técnica:** puntos interactivos, Phaser, despliegue y primer pedido.
+- [x] **0.1 visual — Escenario ilustrado inicial:** imprenta isométrica vectorial, equipamiento reconocible, personajes animados y panel de pedidos.
+- [ ] **0.1 jugable — Jornada de atención:** personajes con llegadas reales, diálogo y primer pedido confirmado con datos.
+- [ ] **0.2 — Comunicación y seguimiento:** correo, llamadas y cambios de encargo.
+- [ ] **0.3 — Modo RUSH:** sistema de tiempo y dificultad, incidencias, prioridades, puntuación.
+- [ ] **0.4 — Carrera / tycoon:** inversión, maquinaria, personal, ampliación y guardado.
+- [ ] **0.5 — Mundo vivo:** clientes recurrentes, campañas y nuevos locales.
 
-No considerar la geometría provisional como arte final.
+## Pendientes antes de usarlo con alumnos
+- Reemplazar el arte provisional por una línea coherente de pixel art isométrico.
+- Crear un motor de simulación separado, comprobable con pruebas.
+- Incorporar traducciones completas, ayudas y accesibilidad para alumnado con distintas necesidades.
+- Evitar datos reales del alumnado en partidas y registros.
+- Probar en ordenadores del centro y distintos tamaños de pantalla.
