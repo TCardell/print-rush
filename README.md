@@ -1,45 +1,60 @@
 # PRINT RUSH
 
-Videojuego educativo de gestión de imprentas y atención al cliente para FP de Artes Gráficas.
+**Videojuego educativo de gestión de imprentas y atención al cliente** para FP de Artes Gráficas.
 
-## Estado
+## Estado: V0.1 · Primera escena ilustrada
 
-**0.0.1: prueba de concepto técnica.** Contiene una planta isométrica geométrica provisional, tres zonas interactivas y el ciclo mínimo de un pedido (registrar → imprimir → recoger). **No es todavía el modo RUSH ni el diseño visual definitivo.**
+Una imprenta isométrica con mostrador, impresora digital, mesa de acabados, estantería de recogidas, personajes animados y una interfaz de pedidos.
 
-## Ejecutarlo en local
+En esta versión puedes completar el primer ciclo: **recibir → imprimir → recoger**. Los encargos se mantienen en una cola con sus estados y puedes registrar varios pedidos mientras otro se imprime.
 
-Requiere Node.js 22 o superior y npm.
+**Importante:** los gráficos actuales son una **ilustración vectorial isométrica provisional**, no el pixel art final. No hay todavía generación automática de clientes, llamadas, correos, economía ni modo RUSH.
+
+## Jugar
+
+Si GitHub Pages está activado con GitHub Actions:
+
+https://tcardell.github.io/print-rush/
+
+En el escenario:
+
+1. Pulsa el **mostrador** para registrar un pedido.
+2. Pulsa la **impresora** para empezar a producir el siguiente trabajo de la cola.
+3. Pulsa **recogidas** cuando el trabajo esté listo.
+
+## Desarrollo local
+
+Requiere Node.js 22 o superior.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre la dirección que indique Vite (normalmente http://localhost:5173).
-
-Para construir el proyecto:
+Para comprobar la compilación:
 
 ```bash
 npm run build
 ```
 
-## Arquitectura
+## Arquitectura actual
 
-- `src/scenes/PrintShopScene.ts`: prototipo visual y de interacción.
-- `src/main.ts`: arranque de Phaser.
-- `src/styles.css`: interfaz HTML.
-- `docs/ROADMAP.md`: visión del proyecto y siguientes hitos.
+- `src/scenes/ShopArt.ts`: escenario, props isométricos y personajes provisionales.
+- `src/scenes/PrintShopScene.ts`: ciclo de pedidos e interacciones.
+- `src/main.ts`: inicio de Phaser 4.
+- `src/styles.css`: panel de control y estilos web.
+- `docs/ROADMAP.md`: plan de desarrollo.
 
-La separación formal en motores de clientes, pedidos, producción, tiempo y economía se hará a partir de la fase 0.1. En 0.0.1, el objetivo es validar el ciclo mínimo.
+La simulación pasará a módulos independientes cuando incorporemos el reloj RUSH, las colas de clientes y la economía. **No incrustaremos la lógica de negocio en el arte isométrico.**
 
 ## Publicación
 
-Preparado para una futura publicación en GitHub Pages bajo `/print-rush/`. No hay despliegue automático activado todavía.
+Las actualizaciones en `main` compilan y se publican mediante `.github/workflows/deploy.yml`. GitHub Pages necesita estar configurado con origen **GitHub Actions**.
 
-## Tecnología
+## Objetivo didáctico
 
-Phaser 4 + TypeScript + Vite. Arte provisional dibujado con primitivas: no es el pixel art definitivo.
+La atención al cliente es el eje: consultas, confirmación de encargos, comunicación de plazos, seguimiento, entregas e incidencias. La producción y el dinero son sistemas de juego que dan consecuencias a las decisiones.
 
-## Idiomas
+## Licencia y recursos
 
-Base inicial en castellano; se incorporará traducción catalán/castellano antes de usarlo como actividad final de clase.
+El proyecto todavía no tiene licencia abierta definida. Los gráficos actuales son formas originales construidas con código. Antes de incorporar tilesets o sprites de terceros, comprobar sus licencias y atribuciones.
