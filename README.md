@@ -1,60 +1,44 @@
 # PRINT RUSH
 
-**Videojuego educativo de gestión de imprentas y atención al cliente** para FP de Artes Gráficas.
+**Videojuego 2D de gestión de imprentas y atención al cliente para FP de Artes Gráficas.**
 
-## Estado: V0.1 · Primera escena ilustrada
+## Rediseño V0.2 · En revisión
 
-Una imprenta isométrica con mostrador, impresora digital, mesa de acabados, estantería de recogidas, personajes animados y una interfaz de pedidos.
+La rama [redesign-2d](https://github.com/TCardell/print-rush/tree/redesign-2d) contiene el nuevo juego de gestión con React + TypeScript. Se ha sustituido la escena isométrica como interfaz principal por un panel 2D dividido en:
 
-En esta versión puedes completar el primer ciclo: **recibir → imprimir → recoger**. Los encargos se mantienen en una cola con sus estados y puedes registrar varios pedidos mientras otro se imprime.
+- Entradas: mostrador, teléfono, correo y recogidas con tiempos de espera.
+- Atención: conversaciones, aclaración de datos, consulta de pedidos y decisiones profesionales.
+- Taller: una impresora animada, trabajos en cola, impresión, acabados y recogidas.
+- Resumen: reloj, caja, reputación, puntuación, flujo de trabajo y registro de eventos.
 
-**Importante:** los gráficos actuales son una **ilustración vectorial isométrica provisional**, no el pixel art final. No hay todavía generación automática de clientes, llamadas, correos, economía ni modo RUSH.
+## Estado funcional
 
-## Jugar
+- Ciclo automático de llegada, producción y recogida.
+- Los pedidos y comunicaciones permanecen relacionados.
+- Interacciones con efectos distintos según se revisen o no los datos.
+- Reloj, pausa, doble velocidad, incremento de solicitudes y fin de partida por reputación.
+- Maqueta vectorial 2D de máquina y productos.
+- Interfaz adaptada a escritorio y móvil; compatibilidad con movimiento reducido.
 
-Si GitHub Pages está activado con GitHub Actions:
+**Pendiente:** equilibrado, pruebas con alumnado, Catalán, accesibilidad integral, guardado, modos de juego adicionales y economía tycoon.
 
-https://tcardell.github.io/print-rush/
+La rama **main** conserva la versión isométrica 0.1 publicada hasta que el rediseño haya sido revisado.
 
-En el escenario:
+## Desarrollo
 
-1. Pulsa el **mostrador** para registrar un pedido.
-2. Pulsa la **impresora** para empezar a producir el siguiente trabajo de la cola.
-3. Pulsa **recogidas** cuando el trabajo esté listo.
+Se requiere Node.js 22 o superior.
 
-## Desarrollo local
-
-Requiere Node.js 22 o superior.
-
-```bash
+\`\`\`sh
 npm install
 npm run dev
-```
+\`\`\`
 
-Para comprobar la compilación:
+El entorno local abre normalmente en http://localhost:5173. Para compilar:
 
-```bash
+\`\`\`sh
 npm run build
-```
-
-## Arquitectura actual
-
-- `src/scenes/ShopArt.ts`: escenario, props isométricos y personajes provisionales.
-- `src/scenes/PrintShopScene.ts`: ciclo de pedidos e interacciones.
-- `src/main.ts`: inicio de Phaser 4.
-- `src/styles.css`: panel de control y estilos web.
-- `docs/ROADMAP.md`: plan de desarrollo.
-
-La simulación pasará a módulos independientes cuando incorporemos el reloj RUSH, las colas de clientes y la economía. **No incrustaremos la lógica de negocio en el arte isométrico.**
+\`\`\`
 
 ## Publicación
 
-Las actualizaciones en `main` compilan y se publican mediante `.github/workflows/deploy.yml`. GitHub Pages necesita estar configurado con origen **GitHub Actions**.
-
-## Objetivo didáctico
-
-La atención al cliente es el eje: consultas, confirmación de encargos, comunicación de plazos, seguimiento, entregas e incidencias. La producción y el dinero son sistemas de juego que dan consecuencias a las decisiones.
-
-## Licencia y recursos
-
-El proyecto todavía no tiene licencia abierta definida. Los gráficos actuales son formas originales construidas con código. Antes de incorporar tilesets o sprites de terceros, comprobar sus licencias y atribuciones.
+El flujo de GitHub Pages en main se ejecuta automáticamente con cada push a main. **La rama de rework no se publica automáticamente** para preservar la versión estable.
