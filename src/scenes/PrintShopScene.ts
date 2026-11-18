@@ -59,15 +59,15 @@ export class PrintShopScene extends Phaser.Scene {
     const dark = Phaser.Display.Color.IntegerToColor(color).darken(25).color;
     const darker = Phaser.Display.Color.IntegerToColor(color).darken(42).color;
     g.fillStyle(color).fillPoints([
-      { x: -65, y: -9 }, { x: 0, y: -42 },
-      { x: 65, y: -9 }, new Phaser.Math.Vector2(0, 25)
+      new Phaser.Math.Vector2(-65, -9), new Phaser.Math.Vector2(0, -42),
+      new Phaser.Math.Vector2(65, -9), new Phaser.Math.Vector2(0, 25)
     ], true);
     g.fillStyle(dark).fillPoints([
-      { x: -65, y: -9 }, new Phaser.Math.Vector2(0, 25),
-      new Phaser.Math.Vector2(0, 53), { x: -65, y: 19 }
+      new Phaser.Math.Vector2(-65, -9), new Phaser.Math.Vector2(0, 25),
+      new Phaser.Math.Vector2(0, 53), new Phaser.Math.Vector2(-65, 19)
     ], true);
     g.fillStyle(darker).fillPoints([
-      new Phaser.Math.Vector2(0, 25), { x: 65, y: -9 },
+      new Phaser.Math.Vector2(0, 25), new Phaser.Math.Vector2(65, -9),
       new Phaser.Math.Vector2(65, 19), new Phaser.Math.Vector2(0, 53)
     ], true);
     const sign = this.add.text(0, 57, label, {
