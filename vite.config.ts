@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/print-rush/' : '/',
+export default defineConfig(({ command, mode }) => ({
+  base: command !== 'build' ? '/' : mode === 'preview' ? '/print-rush/preview/' : '/print-rush/',
 }));
