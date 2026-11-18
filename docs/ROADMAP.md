@@ -1,27 +1,30 @@
-# PRINT RUSH — Hoja de ruta
+# PRINT RUSH — Rework 2D
 
-## Visión
-Juego de gestión isométrico sobre una imprenta que vive y trabaja. El jugador gestiona la atención al cliente, encargos, tiempos, comunicación, producción y entregas.
+## Motivo
+La escena isométrica 0.1 funcionó como prueba técnica, pero no ofrecía una interfaz visual suficientemente atractiva ni dejaba claro el núcleo de atención al cliente. Se conserva en la rama main hasta validar el rediseño.
 
-## Principios
-- Los **pedidos persisten**: una solicitud puede generar llamadas, modificaciones y recogidas posteriores.
-- El **modo RUSH** se basa en prioridades, no solo en velocidad de lectura.
-- El progreso puede ser económico, pero la **atención al cliente** determina confianza y reputación.
-- La lógica del juego se mantiene independiente de la representación visual.
-- Accesibilidad, claridad y edición futura en catalán y castellano.
+## Nuevo enfoque
+- Panel principal 2D de gestión con estética de videojuego y tipografía editorial.
+- Producción visible a través de una impresora animada y un flujo de trabajos.
+- Solicitudes conectadas con expedientes persistentes.
+- El modo RUSH penaliza compromisos no comprobados y esperas excesivas.
+- React gestiona la interfaz; un motor TypeScript puro gestiona la simulación.
 
 ## Versiones
-- [x] **0.0.1 — Prueba técnica:** puntos interactivos, Phaser, despliegue y primer pedido.
-- [x] **0.1 visual — Escenario ilustrado inicial:** imprenta isométrica vectorial, equipamiento reconocible, personajes animados y panel de pedidos.
-- [ ] **0.1 jugable — Jornada de atención:** personajes con llegadas reales, diálogo y primer pedido confirmado con datos.
-- [ ] **0.2 — Comunicación y seguimiento:** correo, llamadas y cambios de encargo.
-- [ ] **0.3 — Modo RUSH:** sistema de tiempo y dificultad, incidencias, prioridades, puntuación.
-- [ ] **0.4 — Carrera / tycoon:** inversión, maquinaria, personal, ampliación y guardado.
-- [ ] **0.5 — Mundo vivo:** clientes recurrentes, campañas y nuevos locales.
+- [x] 0.1 — Validación de Phaser y escenario isométrico.
+- [x] 0.2 — Primera interfaz 2D y bucle de atención, producción y entrega.
+- [ ] 0.2.1 — Pruebas, errores de simulación, accesibilidad y ajustes visuales.
+- [ ] 0.3 — Reclamaciones, llamadas y correos con casos contextualizados más diversos.
+- [ ] 0.4 — Economía tycoon y mejoras.
+- [ ] 0.5 — Guardado, clientes recurrentes y progresión a largo plazo.
 
-## Pendientes antes de usarlo con alumnos
-- Reemplazar el arte provisional por una línea coherente de pixel art isométrico.
-- Crear un motor de simulación separado, comprobable con pruebas.
-- Incorporar traducciones completas, ayudas y accesibilidad para alumnado con distintas necesidades.
-- Evitar datos reales del alumnado en partidas y registros.
-- Probar en ordenadores del centro y distintos tamaños de pantalla.
+## Criterios pedagógicos
+- No ocultar errores, documentar acuerdos y consultar estados antes de prometer plazos.
+- Explicaciones comprensibles, tiempo pausado cuando sea necesario, catalán/castellano.
+- La satisfacción y los compromisos cumplidos importan tanto como los beneficios.
+
+## Arquitectura
+- src/game/engine.ts: reglas y evolución del mundo.
+- src/App.tsx: pantalla, eventos y decisiones.
+- src/styles/rework.css: diseño 2D.
+- src/main.tsx: arranque de React.

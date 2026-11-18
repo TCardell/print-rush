@@ -1,0 +1,74 @@
+name: Preview 2D sin reemplazar la versión estable
+
+on:
+  push:
+    branches: [redesign-2d]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+    environment:
+      name: preview-2d
+      url: https://tcardell.github.io/print-rush/preview/
+    steps:
+      - name: Obtener la versión estable de main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: stable
+
+      - name: Obtener el rediseño 2D
+        uses: actions/checkout@v4
+        with:
+          ref: redesign-2d
+          path: preview
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar dependencias de la versión estable
+        run: npm install --no-audit --no-fund
+        working-directory: stable
+
+      - name: Compilar versión estable
+        run: npm run build
+        working-directory: stable
+
+      - name: Instalar dependencias del rediseño
+        run: npm install --no-audit --no-fund
+        working-directory: preview
+
+      - name: Compilar rediseño para preview
+        run: npm run build -- --mode preview
+        working-directory: preview
+
+      - name: Combinar ambas versiones sin cambiar la raíz
+        shell: bash
+        run: |
+          mkdir -p site/preview
+          cp -R stable/dist/. site/
+          cp -R preview/dist/. site/preview/
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir web
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/
+
+      - name: Publicar las dos versiones
+        id: deployment
+        uses: actions/deploy-pages@v4

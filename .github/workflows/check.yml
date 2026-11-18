@@ -1,7 +1,7 @@
 name: Comprobar proyecto
 on:
   push:
-    branches: [main]
+    branches: [main, redesign-2d]
   pull_request:
 jobs:
   build:
@@ -11,5 +11,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install
+      - run: npm install --no-audit --no-fund
       - run: npm run build
