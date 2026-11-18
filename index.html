@@ -1,47 +1,61 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#112d39" />
-    <title>PRINT RUSH — Prototipo 0.0.1</title>
-  </head>
-  <body>
-    <main class="app">
-      <header class="heading">
-        <div>
-          <small>ARG / LABORATORIO DE ATENCIÓN AL CLIENTE</small>
-          <h1>PRINT <span>RUSH</span></h1>
-          <p>De la solicitud a la entrega. Un pequeño laboratorio jugable.</p>
-        </div>
-        <div class="version">PROTOTIPO 0.0.1</div>
-      </header>
-      <section class="workspace">
-        <div class="scene-shell">
-          <div id="game"></div>
-          <span class="scene-caption">Escena isométrica preliminar · Arte provisional</span>
-        </div>
-        <aside class="sidebar">
-          <div class="stat-grid">
-            <div class="stat"><small>Entregados</small><strong id="delivered">0</strong></div>
-            <div class="stat"><small>En cola</small><strong id="queued">0</strong></div>
-          </div>
-          <section class="panel">
-            <div class="eyebrow">ESTADO DE LA IMPRENTA</div>
-            <h2 id="status">Preparando el turno…</h2>
-            <p id="message">Prueba a pulsar los elementos del escenario.</p>
-          </section>
-          <section class="panel rules">
-            <div class="eyebrow">PRIMER CICLO JUGABLE</div>
-            <p><b>01.</b> Pulsa el mostrador para registrar un pedido.</p>
-            <p><b>02.</b> Pulsa la impresora para producirlo.</p>
-            <p><b>03.</b> Pulsa las estanterías para entregarlo.</p>
-            <p class="subtle">En esta primera base todavía no hay diálogos, costes ni modo RUSH: son las siguientes etapas.</p>
-          </section>
-        </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173e4b" />
+  <meta name="description" content="PRINT RUSH: videojuego educativo de gestión de imprenta y atención al cliente." />
+  <title>PRINT RUSH — Taller isométrico · V0.1</title>
+</head>
+<body>
+  <main class="app">
+    <header class="heading">
+      <div class="brand">
+        <div class="brand-top"><span class="brand-dot"></span> ARG / ARTES GRÁFICAS / LABORATORIO INTERACTIVO</div>
+        <h1>PRINT<span>RUSH</span><span class="logo-spark">✳</span></h1>
+        <p>¡Los encargos no esperan! Gestiona tu primer taller de impresión.</p>
+      </div>
+      <div class="version"><span class="led"></span> V0.1 · ESCENA ISOMÉTRICA</div>
+    </header>
+
+    <div class="toolbar" aria-label="Indicadores del taller">
+      <div class="toolbar-title"><span class="live-dot"></span><b>TALLER ABIERTO</b><small>JORNADA 01</small></div>
+      <div class="metric"><small>HORA</small><strong id="clock">09:00</strong></div>
+      <div class="metric"><small>EN COLA</small><strong id="queued">0</strong></div>
+      <div class="metric"><small>RECOGIDAS</small><strong id="ready">0</strong></div>
+      <div class="metric"><small>ENTREGADOS</small><strong id="delivered">0</strong></div>
+    </div>
+
+    <section class="workspace">
+      <section class="scene-shell" aria-label="Taller isométrico interactivo">
+        <div class="scene-top"><span>LOCAL 01</span><span>PRIMERA IMPRENTA</span></div>
+        <div id="game"></div>
+        <div class="scene-caption"><span class="caption-icon">✦</span> Haz clic en el mostrador, la impresora o la zona de recogidas.</div>
       </section>
-      <footer>PRINT RUSH · Prototipo educativo · FP Artes Gráficas</footer>
-    </main>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+      <aside class="sidebar" aria-label="Panel de control de pedidos">
+        <section class="panel alert-panel" aria-live="polite">
+          <div class="eyebrow"><span class="signal"></span> MOSTRADOR / ACTIVIDAD</div>
+          <h2 id="status">Preparando el turno…</h2>
+          <p id="message">La imprenta está abriendo.</p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><div class="eyebrow">TRABAJOS ACTIVOS</div><span class="subtag">EN DIRECTO</span></div>
+          <div id="order-list"><p class="order-empty">No hay encargos activos.</p></div>
+        </section>
+
+        <section class="panel tips">
+          <div class="eyebrow">TU PRIMERA JORNADA</div>
+          <div class="step"><span>01</span><p><b>Recibe el encargo</b><small>Haz clic en el mostrador para registrar un pedido.</small></p></div>
+          <div class="step"><span>02</span><p><b>Activa la impresión</b><small>Acércate a la máquina; puedes atender más clientes mientras trabaja.</small></p></div>
+          <div class="step"><span>03</span><p><b>Entrega el pedido</b><small>Cuando termine, ve a la estantería de recogidas.</small></p></div>
+        </section>
+      </aside>
+    </section>
+
+    <footer><span>PRINT RUSH © PROYECTO EDUCATIVO · FP ARTES GRÁFICAS</span><span>Vista isométrica ilustrada provisional · El pixel art definitivo está pendiente.</span></footer>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>
